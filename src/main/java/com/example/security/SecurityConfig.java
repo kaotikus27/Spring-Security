@@ -31,8 +31,11 @@ public class SecurityConfig {
                                 .authenticated());
         http.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.formLogin(withDefaults());
+//      http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
+        http.headers(headers ->
+                headers.frameOptions(frameOptions ->
+                        frameOptions.sameOrigin()));
         return http.build();
     }
 
