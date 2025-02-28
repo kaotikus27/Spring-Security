@@ -81,8 +81,10 @@ public class SecurityConfig {
 
     @Bean
     public CommandLineRunner initData(UserDetailsService userDetailsService) {
+
         return args -> {
             JdbcUserDetailsManager manager = (JdbcUserDetailsManager) userDetailsService;
+
             UserDetails user1 = User.withUsername("user1")
                     .password(passwordEncoder().encode("password1"))
                     .roles("USER")
@@ -97,6 +99,7 @@ public class SecurityConfig {
             userDetailsManager.createUser(user1);
             userDetailsManager.createUser(admin);
         };
+
     }
 
     @Bean

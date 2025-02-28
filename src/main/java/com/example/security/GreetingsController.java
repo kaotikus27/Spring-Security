@@ -31,6 +31,7 @@ public class GreetingsController {
     private JwtUtils jwtUtils;
 
 
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @GetMapping("/hello")
